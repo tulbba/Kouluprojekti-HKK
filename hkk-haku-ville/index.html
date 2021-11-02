@@ -70,69 +70,8 @@ crossorigin=""
 <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
 <script src="node_modules/leaflet-search/src/leaflet-search.js"></script>
-<!--
-<script src="/hkk-haku-ville/node_modules/map.js"></script> -->
 
-
-<script>
-    var data = [
-  {"loc":[60.20266957854647, 24.96800381015687], "title":"UFF Second Hand (Kauppakeskus Arabia), Hämeentie 111", "summary":"<b>UFF Second Hand (Kauppakeskus Arabia)</b><br>Hämeentie 111<br>ma-pe 10-20, la 10-18, su 12-18</br>"},
-  {"loc":[60.16345848887299, 24.934771503859576], "title":"UFF Second Hand, Bulevardi 30", "summary":"<b>UFF Second Hand</b><br>Bulevardi 30<br>ma-pe 10-20, la 10-18, su 12-18</br>"},
-  {"loc":[60.1893749, 24.9165526], "title":"UFF Second Hand, Mannerheimintie 104", "summary":"<b>UFF Second Hand</b><br>Mannerheimintie 104<br>ma-pe 10-20, la 10-18, su 12-18</br>"}
-];
-
-var mymap = new L.Map("map", {zoom: 12, center: new L.latLng(data[0].loc)});
-mymap.zoomControl.setPosition('topright'); //Siirtää zoom controllit kartan oikeaan yläkulmaan 
-
-mymap.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')); //Lisätään kartan pohja layer
-
-var markersLayer = new L.LayerGroup(); //Layer sisältää haetut elementit
-mymap.addLayer(markersLayer); //Lisätään markersLayer kartalle
-
-//Luodaan uusi haku control ja annetaan sille asetuksia
-var controlSearch = new L.Control.Search({
-    layer: markersLayer, 
-    initial: false, //antaa hakuun sopivia tuloksia kirjaimen esiintyessä missä tahansa kohtaa
-    position:'topleft', //haku sijoitettu vasempaan yläkulmaan, default oikealla
-    collapsed: true, //hakukenttä sulkeutuu haun suorittamisen jälkeen
-    autoCollapse: true, //hakutulokset ja error message sulkeutuvat automaattisesti
-    autoCollapseTime: 10000, //aika ennen hakutulosten/error messagen sulkeutumista
-    textPlaceholder: 'Hae osoitteella tai nimellä...', //hakukentän placeholder
-    tipAutoSubmit: true,
-    textErr: 'Antamallasi haulla ei löytynyt yhtään kirpparia :(', //error message
-    zoom: 16, //zoomlevel haun toteuduttua, esim. zoomaa lähemmäs haun löytämää lokaatiota
-    marker: {						
-			icon: false, //kustomoitu L.Marker, poistettu
-            circle: {	//ympyröi valitun lokaation, poistettu
-				stroke: false,
-				fill: false
-			}
-    }
-    
-}); 
-
-mymap.addControl( controlSearch ); //Lisää hakukentän kartalle
-
-//Luodaan markerit ja popupit kirppareille, joiden tiedot haetaan markersLayerista joka haki ne data -muuttujasta
-for(i in data) {
-  var title = data[i].title, //kirpparin nimi löydetty datasta (title)
-    summary = data[i].summary, //popupin tiedot löydetty datasta (summary)
-      loc = data[i].loc, //kirpparin lokaatio löydetty datasta (loc)
-      marker = new L.Marker(new L.latLng(loc), {title: title});
-  marker.bindPopup(summary); //lisää popupin markeriin kirpparin tiedoilla (title)
-  markersLayer.addLayer(marker); //lisää layerin joka sisältää markerit
-}
-
-require(["leaflet", "leafletSearch"],function(L, LeafletSearch) {
-
-//... initialize leaflet map and dataLayer ...
-
-mymap.addControl( new LeafletSearch({
-    layer: dataLayer
-}) );
-}); 
-</script>
-
+<script src="node_modules/map.js"></script>
 
 </body>
 </html>
