@@ -4,7 +4,6 @@ html {
   line-height: 1.25;
   font-family: "Lato", sans-serif;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 a {
@@ -30,17 +29,6 @@ a {
 
 .bg-primary {
   background-color: #979797 !important;
-}
-
-.btn {
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  border-radius: 0;
-}
-
-.btn-primary {
-  background-color: #979797;
-  border-color: #979797;
 }
 
 .navbar-nav .nav-link {
@@ -75,4 +63,41 @@ p {
   padding: 9px;
   font-size: 0.8em;
   color: whitesmoke;
+}
+
+#title {
+  text-align: center;
+  color: whitesmoke;
+}
+
+#title h6 {
+  max-width: 27rem;
+  padding: 1rem;
+  line-height: 1.3rem;
+}
+
+main {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.btn {
+  border-radius: 0.5rem;
+  width: 6rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #181818;
+}
+
+.form-control {
+  width: 18rem;
+  resize: none;
 }

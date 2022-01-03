@@ -7,23 +7,10 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
     />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
-    <link
-      rel="stylesheet"
-      href="node_modules/leaflet-search/src/leaflet-search.css"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap"
       rel="stylesheet"
@@ -34,9 +21,9 @@
     />
     <link
       rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      href="/hkk-haku-ville/node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="/hkk-haku-ville/css/styles.css" />
   </head>
 
   <header>
@@ -55,7 +42,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" href="#">Helsingin kirpparit</a>
+            <a class="nav-link active" href="/hkk-haku-ville/index.html"
+              >Helsingin kirpparit</a
+            >
             <a class="nav-link" href="/hkk-haku-ville/about.html"
               >Anna palautetta</a
             >
@@ -66,19 +55,45 @@
   </header>
 
   <body>
-    <div class="laatikko">
-      <div id="map"></div>
-    </div>
+    <main>
+      <header id="title">
+        <h1>Palautelomake</h1>
+        <h6>
+          Onko sinulla mielessä joku kirpputori Helsingissä mitä et löytänyt
+          kartalta tai haluat muuten vaan antaa palautetta? Täytä alla oleva
+          lomake!
+        </h6>
+      </header>
 
-    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
-    <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
-    <script src="node_modules/leaflet-search/src/leaflet-search.js"></script>
+      <form>
+        <div class="mb-2 input-group-sm">
+          <label for="name" class="form-label">Nimi</label>
+          <input type="name" class="form-control" id="name" required />
+        </div>
+        <div class="mb-2 input-group-sm">
+          <label for="email" class="form-label">Sähköposti</label>
+          <input type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-2 input-group-sm">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Viesti</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-light btn-form">Lähetä</button>
+      </form>
+    </main>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="node_modules/map.js"></script>
     <div class="footer">
       <p>©Copyright 2021</p>
     </div>
